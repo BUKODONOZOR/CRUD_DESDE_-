@@ -20,8 +20,15 @@ function App() {
       ...usuarios,
       usuario
     ])
-  }
+    
   
+  }
+
+  const eliminarUsuario = (id) => {
+    setUsuario(usuarios.filter(usuario => usuario.id !== id))
+
+
+  }
   return (
     <div className="container">
       <h1>PETICION BASICA</h1>
@@ -32,7 +39,7 @@ function App() {
         </div>
         <div className="flex-large">
           <h2>Ver usuarios</h2>
-          <TablaUsuarios usuarios={usuarios}/>
+          <TablaUsuarios usuarios={usuarios} eliminarUsuario={eliminarUsuario}/>
         </div>
       </div>
     </div>

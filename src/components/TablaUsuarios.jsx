@@ -15,17 +15,25 @@ const TablaUsuarios = (props) => {
         </thead>
         <tbody>
             {
+                props.usuarios.length > 0 ?
                 props.usuarios.map((usuario) =>(
                     <tr key={usuario.id}>
-                    <td>Nombre</td>
-                    <td>Nombre Usuario</td>
-                    <td>Documento</td>
-                    <td>
-                      <button className="button muted-button">Edit</button>
-                      <button className="button muted-button">Delete</button>
-                    </td>
-                  </tr>
-                ))
+
+                        <td>{usuario.id}</td>
+                        <td>{usuario.nombre}</td>
+                        <td>{usuario.documento}</td>
+                        <td>
+                        <button className="button muted-button">Edit</button>
+                        <button className="button muted-button" >Delete</button>
+                        </td>
+                    </tr>
+                )): (
+
+                        <tr>
+                            <td colSpan={4}> No usuarios </td>
+                        </tr>
+                
+                )
             }
         
         </tbody>
